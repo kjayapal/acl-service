@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>Acls Details</title>
+<style>
+table, th, td {
+	border: 1px solid black;
+	border-spacing: 0px;
+}
+
+th, td {
+	padding: 10px;
+}
+</style>
+</head>
+<body>
+	<h2>ACLS DATA</h2>
+	<table>
+		<thead>
+			<tr>
+				<th>Site ID</th>
+				<th>Form Name</th>
+				<th>Role</th>
+				<th>Attr Name</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="acls : ${aclsList}">
+				<td th:text="${acls.siteId}"></td>
+				<td th:text="${acls.formName}"></td>
+				<td th:text="${acls.role}"></td>
+				<td th:text="${acls.attrName}"></td>
+				<td>
+				    <div th:each="actionType : ${acls.actionType}">
+				        <span th:text="${actionType}"></span>
+				    </div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	<!--
+	<h2>Add ACLs</h2>
+	<form action="/addAcls" method="POST">
+		
+		<table border="0">
+			<tr>
+				<td>Service Name</td>
+				<td><input type="text" id="serviceName" name="serviceName" /></td>
+			</tr>
+			<tr>
+				<td>Form Name</td>
+				<td><input type="text" id="formName" name="formName" /></td>
+			</tr>
+			<tr>
+				<td>Attr Name</td>
+				<td><input type="text" id="attrName" name="attrName" /></td>
+			</tr>
+			<tr>
+				<td>Role</td>
+				<td><input type="text" id="role" name="role" /></td>
+			</tr>
+			<tr>
+				<td>Action</td>
+				<td><input type="text" id="action" name="actionType" /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" /></td>
+			</tr>
+		</table>
+	</form>
+	<h2>Search for ACLs</h2>
+	<form action="/search" method="POST">
+		<input type="text" name="search" id="search" th:value="${search}" />
+		<input type="submit" value="Search" />
+	</form>
+		 -->
+</body>
+</html>
